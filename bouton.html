@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+    oFReader = new FileReader(); 
+
+    oFReader.onload = function (oFREvent) {
+        document.getElementById('info').value =  oFREvent.target.result;
+    };
+
+    function GetFileInfo() {
+        if (document.getElementById("fileInput").files.length === 0) { return; }
+        var oFile = document.getElementById("fileInput").files[0];
+        oFReader.readAsText(oFile);
+    }
+
+    </script>
+</head>
+
+<body>
+    <form name="test">
+    <textarea type="text" id="info" cols="80" rows="20"></textarea>
+    </form>
+    <input id="fileInput" type="file" size="50" onchange="GetFileInfo ()" />
+</body>
+
+</html>
